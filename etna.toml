@@ -1,0 +1,3 @@
+name = "STLCProplang"
+language = "Rocq"
+description = "Simply Typed Lambda Calculus workload using the PropLang runner framework (Rocq/Coq)."
