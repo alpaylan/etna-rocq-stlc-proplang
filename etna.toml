@@ -1,3 +1,5 @@
-name = "STLCProplang"
+name = "stlc-proplang-rocq"
 language = "Rocq"
 description = "Simply Typed Lambda Calculus workload using the PropLang runner framework (Rocq/Coq)."
+
+mutations = []
