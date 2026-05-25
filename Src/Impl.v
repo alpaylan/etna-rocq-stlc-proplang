@@ -82,7 +82,7 @@ Definition shift  (d: Z) (ex: Expr) : Expr :=
             Var n
             *)
             (*!! shift_var_all *)
-            (*!             
+            (*!
             Var (Z.to_nat (Z.of_nat n + d))
             *)
             (*!! shift_var_leq *)
@@ -90,6 +90,7 @@ Definition shift  (d: Z) (ex: Expr) : Expr :=
             if (Z.leb (Z.of_nat n) c) then Var n
             else Var (Z.to_nat (Z.of_nat n + d)) 
             *)
+            (* !*)
            
         | Bool b => 
             Bool b
@@ -100,6 +101,7 @@ Definition shift  (d: Z) (ex: Expr) : Expr :=
             (*!
             Abs t (go c e)
             *)
+            (* !*)
         | (App e1 e2) => 
             App (go c e1) (go c e2)
         end in
@@ -122,6 +124,7 @@ Fixpoint subst  (n: nat) (s: Expr) (e: Expr) : Expr :=
         (*!
         Var m
         *)
+        (* !*)
     | _, _, (Bool b) => Bool b
     | n, s, (Abs t e) =>
         (*! *)
@@ -134,6 +137,7 @@ Fixpoint subst  (n: nat) (s: Expr) (e: Expr) : Expr :=
         (*!
         Abs t (subst n (shift 1 s) e)
         *)
+        (* !*)
     | n, s, (App e1 e2) => App (subst n s e1) (subst n s e2)
     end.
 
@@ -150,6 +154,7 @@ Definition substTop (s: Expr) (e: Expr) : Expr :=
     (*!
     subst 0 (shift 1 s) e
     *)
+    (* !*)
 .
 
 Definition fromMaybe {A} (a: A) (a' : option A) : A :=
