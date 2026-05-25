@@ -5,18 +5,20 @@ From ExtLib Require Import Monad.
 From ExtLib.Data.Monads Require Import OptionMonad.
 Import MonadNotation.
 
-From PropLang Require Import PropLang.
 From STLCProplang Require Import Impl Spec.
+From PropLang Require Import PropLang SeedPool.
+From PropLang.seedpool Require Import Heap.
+From PropLang.loops Require Import FuzzLoop.
 Local Open Scope prop_scope.
 
 
-Derive (Arbitrary, Fuzzy) for Typ.
+Derive Instance (Arbitrary, Fuzzy) for Typ.
 
-Derive (Sized, Fuzzy) for nat.
+Derive Instance (Sized, Fuzzy) for nat.
 
-Derive (Fuzzy) for bool.
+Derive Instance (Fuzzy) for bool.
 
-Derive (Arbitrary, Fuzzy) for Expr.
+Derive Instance (Arbitrary, Fuzzy) for Expr.
 
 
 

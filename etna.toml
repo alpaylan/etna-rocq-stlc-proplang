@@ -1,6 +1,12 @@
 name = "stlc-proplang-rocq"
 language = "Rocq"
 description = "Simply Typed Lambda Calculus workload using the PropLang runner framework (Rocq/Coq)."
+strategies = [
+  "BespokeGenerator", 
+  "SpecificationBasedGenerator",
+  "TypeBasedGenerator",
+  "TypeBasedFuzzer",
+  "NewGenerator"]
 
 mutations = [
   "shift_var_none",

@@ -9,8 +9,8 @@ From PropLang Require Import PropLang.
 From STLCProplang Require Import Impl Spec.
 Local Open Scope prop_scope.
 
-Derive (Arbitrary) for Typ.
-Derive (Arbitrary) for Expr.
+Derive Instance (Arbitrary) for Typ.
+Derive Instance (Arbitrary) for Expr.
 
 
 Inductive bind : Ctx -> nat -> Typ -> Prop :=
@@ -38,9 +38,9 @@ Inductive typing (G : Ctx) : Expr -> Typ -> Prop :=
 
 #[export] Instance dec_type (t1 t2 : Typ) : Dec (t1 = t2).
 Proof. dec_eq. Defined.
-Derive Arbitrary for Typ.
-Derive ArbitrarySizedSuchThat for (fun x => bind env x tau).
-Derive ArbitrarySizedSuchThat for (fun t => typing env t tau).
+Derive Instance Arbitrary for Typ.
+Derive Instance ArbitrarySizedSuchThat for (fun x => bind env x tau).
+Derive Instance ArbitrarySizedSuchThat for (fun t => typing env t tau).
 
 Definition gTypedExpr G T sz :=
   @arbitrarySizeST _ (fun e => typing G e T) _ sz.

@@ -9,8 +9,8 @@ From PropLang Require Import PropLang.
 From STLCProplang Require Import Impl Spec.
 Local Open Scope prop_scope.
 
-Derive (Arbitrary) for Typ.
-Derive (Arbitrary) for Expr.
+Derive Instance (Arbitrary) for Typ.
+Derive Instance (Arbitrary) for Expr.
 
 
 #[local] Instance dec_eq_expr : Dec_Eq Expr.

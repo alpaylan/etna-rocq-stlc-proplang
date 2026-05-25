@@ -15,7 +15,7 @@ Inductive Typ :=
 #[export] Instance dec_type (t1 t2 : Typ) : Dec (t1 = t2).
 Proof. dec_eq. Defined.
 
-Derive (Show, Sized) for Typ.
+Derive Instance (Show, Sized) for Typ.
 
 Inductive Expr :=
 | Var   : nat -> Expr
@@ -24,7 +24,7 @@ Inductive Expr :=
 | App   : Expr -> Expr -> Expr
 .
 
-Derive (Show, Sized) for Expr.
+Derive Instance (Show, Sized) for Expr.
 
 Definition Ctx := list Typ.
 

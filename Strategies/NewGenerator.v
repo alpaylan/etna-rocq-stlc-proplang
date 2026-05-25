@@ -8,8 +8,8 @@ Import MonadNotation.
 From PropLang Require Import PropLang.
 From STLCProplang Require Import Impl Spec.
 Local Open Scope prop_scope.
-Derive (Arbitrary) for Typ.
-Derive (Arbitrary) for Expr.
+Derive Instance (Arbitrary) for Typ.
+Derive Instance (Arbitrary) for Expr.
 
 Inductive bind : Ctx -> nat -> Typ -> Prop :=
 | BindNow   : forall tau env, bind (tau :: env) 0 tau
@@ -50,7 +50,7 @@ Fixpoint get {a: Type} (l : list (nat * a)) (target_key : nat) (default : a): a 
 
 #[export] Instance dec_type (t1 t2 : Typ) : Dec (t1 = t2).
 Proof. dec_eq. Defined.
-Derive Arbitrary for Typ.
+Derive Instance Arbitrary for Typ.
 
 Fixpoint genVar' (ctx: Ctx) (t: Typ) (p: nat) (r: list nat) : list nat :=
   match ctx with
